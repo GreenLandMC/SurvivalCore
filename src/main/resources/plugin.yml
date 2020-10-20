@@ -1,0 +1,10 @@
+name: SurvivalCore
+version: ${project.version}
+main: me.GGGEDR.SurvivalCore.Main
+api-version: 1.16
+authors: [GGGEDR]
+depend: [LuckPerms]
+commands:
+  tpa:
+  ad:
+  help:
