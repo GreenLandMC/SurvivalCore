@@ -11,7 +11,7 @@ public class AdvertisedCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 0){
-            sender.sendMessage("§c§l* Use: \n§c/"+ command.getName() +" <text>");
+            sender.sendMessage("§a§l* Use: \n§a/"+ command.getName() +" <text>");
         } else {
             if(!AdvertisedCache.isInCache(sender.getName())) {
                 String content = null;
@@ -27,7 +27,7 @@ public class AdvertisedCommand implements CommandExecutor {
                 countdown.startTiming();
                 AdvertisedCache.addToCache(sender.getName(), countdown);
             } else {
-                sender.sendMessage("§c§lAdvertised §8» §7Countdown for this command: §c"+ AdvertisedCache.getBoolean(sender.getName()).getTime());
+                sender.sendMessage("§a§lAdvertised §8» §7Countdown for this command: §a"+ AdvertisedCache.getBoolean(sender.getName()).getTime());
             }
         }
         return false;

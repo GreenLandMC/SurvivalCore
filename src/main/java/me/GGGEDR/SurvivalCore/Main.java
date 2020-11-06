@@ -4,10 +4,9 @@ import me.GGGEDR.SurvivalCore.Commands.AdvertisedCommand.AdvertisedCommand;
 import me.GGGEDR.SurvivalCore.Commands.HelpCommand.HelpCommand;
 import me.GGGEDR.SurvivalCore.Commands.TpaCommand.TpaCmd;
 import me.GGGEDR.SurvivalCore.Listeners.Chat.ChatListener;
-import me.GGGEDR.SurvivalCore.Listeners.ItemPhysic.ItemPhysicListener;
+import me.GGGEDR.SurvivalCore.Listeners.DeathListener;
 import me.GGGEDR.SurvivalCore.Listeners.JoinLeaveMessages.MessagesJoinLeaveListener;
-import me.GGGEDR.SurvivalCore.Listeners.Tab.JoinLeaveListener;
-import me.GGGEDR.SurvivalCore.Listeners.Tab.TabReloader;
+import me.GGGEDR.SurvivalCore.Listeners.Move;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -25,7 +24,6 @@ public final class Main extends JavaPlugin {
         if (provider != null) {
             api = provider.getProvider();
         }
-        TabReloader.startTimer();
         // Plugin startup logic
 
 
@@ -33,9 +31,10 @@ public final class Main extends JavaPlugin {
         Bukkit.getPluginCommand("ad").setExecutor(new AdvertisedCommand());
         Bukkit.getPluginCommand("help").setExecutor(new HelpCommand());
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
-        Bukkit.getPluginManager().registerEvents(new JoinLeaveListener(), this);
         Bukkit.getPluginManager().registerEvents(new MessagesJoinLeaveListener(), this);
-        Bukkit.getPluginManager().registerEvents(new ItemPhysicListener(), this);
+        Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
+        Bukkit.getPluginManager().registerEvents(new Move(), this);
+        Move.startTiming();
     }
 
     @Override
