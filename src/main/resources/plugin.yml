@@ -3,7 +3,7 @@ version: ${project.version}
 main: me.GGGEDR.SurvivalCore.Main
 api-version: 1.16
 authors: [GGGEDR]
-depend: [LuckPerms, DeluxeTags]
+depend: [LuckPerms, GreenTags, Vanish]
 commands:
   tpa:
   ad:

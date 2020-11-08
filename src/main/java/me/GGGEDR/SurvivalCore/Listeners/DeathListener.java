@@ -2,6 +2,7 @@ package me.GGGEDR.SurvivalCore.Listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -80,6 +81,38 @@ public class DeathListener implements Listener {
             n += 1;
             if(n < 30){
                 e.getBlock().getLocation().getWorld().dropItemNaturally(e.getBlock().getLocation(), new ItemStack(Material.TORCH));
+            }
+        }
+
+        if(e.getBlock().getType() == Material.DIAMOND_ORE){
+            for(Player p: Bukkit.getOnlinePlayers()){
+                if(p.hasPermission("admin.*")){
+                    p.sendMessage("§a§lStaffMine §8» §7Hráč: §a"+ e.getPlayer().getName() +" §7vykopal §b§lDiamant");
+                }
+            }
+        }
+
+        if(e.getBlock().getType() == Material.EMERALD_ORE){
+            for(Player p: Bukkit.getOnlinePlayers()){
+                if(p.hasPermission("admin.*")){
+                    p.sendMessage("§a§lStaffMine §8» §7Hráč: §a"+ e.getPlayer().getName() +" §7vykopal §2§lEmerald");
+                }
+            }
+        }
+
+        if(e.getBlock().getType() == Material.GOLD_ORE){
+            for(Player p: Bukkit.getOnlinePlayers()){
+                if(p.hasPermission("admin.*")){
+                    p.sendMessage("§a§lStaffMine §8» §7Hráč: §a"+ e.getPlayer().getName() +" §7vykopal §6§lZlato");
+                }
+            }
+        }
+
+        if(e.getBlock().getType() == Material.IRON_ORE){
+            for(Player p: Bukkit.getOnlinePlayers()){
+                if(p.hasPermission("admin.*")){
+                    p.sendMessage("§a§lStaffMine §8» §7Hráč: §a"+ e.getPlayer().getName() +" §7vykopal §f§lŽelezo");
+                }
             }
         }
     }

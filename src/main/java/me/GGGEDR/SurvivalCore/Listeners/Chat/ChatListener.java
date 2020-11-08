@@ -1,8 +1,8 @@
 package me.GGGEDR.SurvivalCore.Listeners.Chat;
 
+import me.GGGEDR.GreenTags.Storage.Data;
+import me.GGGEDR.GreenTags.StorageProvider;
 import me.GGGEDR.SurvivalCore.Main;
-import me.clip.deluxetags.DeluxeTag;
-import me.clip.deluxetags.DeluxeTags;
 import net.luckperms.api.cacheddata.CachedMetaData;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
@@ -23,18 +23,20 @@ public class ChatListener implements Listener {
         CachedMetaData metaData = user.getCachedData().getMetaData(queryOptions.get());
         String prefix = metaData.getPrefix();
         String chat_color = metaData.getSuffix();
-        String tag = DeluxeTag.getPlayerDisplayTag(e.getPlayer());
+        StorageProvider storageProvider = new StorageProvider();
+        storageProvider.loadData();
+        Data data = storageProvider.getDataEditor();
         if(e.getPlayer().hasPermission("chat.color")) {
-            if(DeluxeTag.getForcedTag(e.getPlayer()) != null) {
-                Bukkit.broadcastMessage(String.format("%s§8| %s §f%s §8» %s%s", ChatColor.translateAlternateColorCodes('&', prefix), metaData.getSuffix() + tag, e.getPlayer().getName(), ChatColor.translateAlternateColorCodes('&', chat_color), ChatColor.translateAlternateColorCodes('&', e.getMessage())));
+            if(data.isTagSelected(e.getPlayer())) {
+                Bukkit.broadcastMessage(String.format("%s §8| §f%s §8» %s%s", metaData.getSuffix() + data.getTag(e.getPlayer()).getPrefix(), e.getPlayer().getName(), ChatColor.translateAlternateColorCodes('&', chat_color), ChatColor.translateAlternateColorCodes('&', e.getMessage())));
                 e.setCancelled(true);
             } else {
                 Bukkit.broadcastMessage(String.format("%s%s §8» %s%s", ChatColor.translateAlternateColorCodes('&', prefix), e.getPlayer().getName(), ChatColor.translateAlternateColorCodes('&', chat_color), ChatColor.translateAlternateColorCodes('&', e.getMessage())));
                 e.setCancelled(true);
             }
         } else {
-            if(DeluxeTag.getForcedTag(e.getPlayer()) != null) {
-                Bukkit.broadcastMessage(String.format("%s§8| %s§f %s §8» %s%s", ChatColor.translateAlternateColorCodes('&', prefix), metaData.getSuffix() + tag, e.getPlayer().getName(), ChatColor.translateAlternateColorCodes('&', chat_color), e.getMessage()));
+            if(data.isTagSelected(e.getPlayer())) {
+                Bukkit.broadcastMessage(String.format("%s §8| §f%s §8» %s%s", metaData.getSuffix() + data.getTag(e.getPlayer()).getPrefix(), e.getPlayer().getName(), ChatColor.translateAlternateColorCodes('&', chat_color), e.getMessage()));
                 e.setCancelled(true);
             } else {
                 Bukkit.broadcastMessage(String.format("%s%s §8» %s%s", ChatColor.translateAlternateColorCodes('&', prefix), e.getPlayer().getName(), ChatColor.translateAlternateColorCodes('&', chat_color), e.getMessage()));

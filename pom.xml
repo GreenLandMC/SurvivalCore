@@ -78,10 +78,17 @@
         </dependency>
         <dependency>
             <groupId>me.GGGEDR.tags</groupId>
-            <artifactId>deluxeTags</artifactId>
+            <artifactId>GreenTags</artifactId>
             <version>1.16.3</version>
             <scope>system</scope>
-            <systemPath>D:/Dev/Java/SurvivalCore/dep/DeluxeTags-1.8.1-Release.jar</systemPath>
+            <systemPath>D:/Dev/Java/SurvivalCore/dep/Tagy-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>me.GGGEDR.vanish</groupId>
+            <artifactId>TwlVanishNaCurakov</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>D:/Dev/Java/SurvivalCore/dep/Vanish-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
     </dependencies>
 </project>
