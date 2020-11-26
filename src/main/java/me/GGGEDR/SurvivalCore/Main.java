@@ -34,7 +34,6 @@ public final class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new MessagesJoinLeaveListener(), this);
         Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
         Bukkit.getPluginManager().registerEvents(new Move(), this);
-        Move.startTiming();
     }
 
     @Override
