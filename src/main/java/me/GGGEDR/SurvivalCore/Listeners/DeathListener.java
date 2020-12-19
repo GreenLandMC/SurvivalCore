@@ -1,7 +1,6 @@
 package me.GGGEDR.SurvivalCore.Listeners;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -72,49 +71,4 @@ public class DeathListener implements Listener {
         }
         e.getEntity().sendMessage("§c| §7You died on the coordinates: §ax: §f"+ (int) e.getEntity().getLocation().getBlockX() +" §ay: §f"+ (int) e.getEntity().getLocation().getY() +" §az: §f"+ (int) e.getEntity().getLocation().getZ());
     }
-
-    @EventHandler
-    public void onMine(BlockBreakEvent e){
-        if(e.getBlock().getType() == Material.COAL_ORE) {
-            Random rand = new Random();
-            int n = rand.nextInt(100);
-            n += 1;
-            if(n < 30){
-                e.getBlock().getLocation().getWorld().dropItemNaturally(e.getBlock().getLocation(), new ItemStack(Material.TORCH));
-            }
-        }
-
-        if(e.getBlock().getType() == Material.DIAMOND_ORE){
-            for(Player p: Bukkit.getOnlinePlayers()){
-                if(p.hasPermission("admin.*")){
-                    p.sendMessage("§a§lStaffMine §8» §7Hráč: §a"+ e.getPlayer().getName() +" §7vykopal §b§lDiamant");
-                }
-            }
-        }
-
-        if(e.getBlock().getType() == Material.EMERALD_ORE){
-            for(Player p: Bukkit.getOnlinePlayers()){
-                if(p.hasPermission("admin.*")){
-                    p.sendMessage("§a§lStaffMine §8» §7Hráč: §a"+ e.getPlayer().getName() +" §7vykopal §2§lEmerald");
-                }
-            }
-        }
-
-        if(e.getBlock().getType() == Material.GOLD_ORE){
-            for(Player p: Bukkit.getOnlinePlayers()){
-                if(p.hasPermission("admin.*")){
-                    p.sendMessage("§a§lStaffMine §8» §7Hráč: §a"+ e.getPlayer().getName() +" §7vykopal §6§lZlato");
-                }
-            }
-        }
-
-        if(e.getBlock().getType() == Material.IRON_ORE){
-            for(Player p: Bukkit.getOnlinePlayers()){
-                if(p.hasPermission("admin.*")){
-                    p.sendMessage("§a§lStaffMine §8» §7Hráč: §a"+ e.getPlayer().getName() +" §7vykopal §f§lŽelezo");
-                }
-            }
-        }
-    }
-
 }

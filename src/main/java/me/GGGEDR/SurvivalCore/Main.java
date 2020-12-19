@@ -6,6 +6,7 @@ import me.GGGEDR.SurvivalCore.Commands.TpaCommand.TpaCmd;
 import me.GGGEDR.SurvivalCore.Listeners.Chat.ChatListener;
 import me.GGGEDR.SurvivalCore.Listeners.DeathListener;
 import me.GGGEDR.SurvivalCore.Listeners.JoinLeaveMessages.MessagesJoinLeaveListener;
+import me.GGGEDR.SurvivalCore.Listeners.MineListener;
 import me.GGGEDR.SurvivalCore.Listeners.Move;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
@@ -33,6 +34,7 @@ public final class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new ChatListener(), this);
         Bukkit.getPluginManager().registerEvents(new MessagesJoinLeaveListener(), this);
         Bukkit.getPluginManager().registerEvents(new DeathListener(), this);
+        Bukkit.getPluginManager().registerEvents(new MineListener(), this);
         Bukkit.getPluginManager().registerEvents(new Move(), this);
     }
 
