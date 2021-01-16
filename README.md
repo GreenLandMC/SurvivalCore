@@ -13,7 +13,7 @@ SurvivalCore is opensource core plugin for Spigot 1.16
 
 ### Used apis:
 
-  - [Yatpoia](https://github.com/YatopiaMC/Yatopia) - Fast & Optimalised 1.16.4 server
+  - [Yatopia](https://github.com/YatopiaMC/Yatopia) - Fast & Optimalised 1.16.4 server
   - [LuckPerms](https://luckperms.net/) - Integration prefix to chat and etc...
  
  
